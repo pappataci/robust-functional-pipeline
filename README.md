@@ -13,7 +13,6 @@ The result? Clean logic, composable building blocks, and no more scattered error
 - **Exception-safe**: Robust try/catch logic is wrapped into the pipeline — no need for spaghetti exception code
 - **Composable**: Define computations in a table or cell array — easy to extend, reuse, and test
 - **Functional flavor**: Each unit only needs to know its input and returns its output
-- **Nested pipelines supported**: Computations themselves can invoke `processTable` — recursive logic is encouraged
 - **Debuggable by design**: Pipeline traces, failure logs, and modular units make it transparent
 
 ## 🧠 Advanced Use Case
@@ -37,7 +36,8 @@ This is not just MATLAB. This is *clarity as a service*.
 - Each computation gets a pass and a fail function
 - Use `processTable` to apply the pipeline row-by-row
 
-Example coming soon.
+####
+- Please refer to the examples under examples/
 
 ## 👁 Audience
 Anyone solving pipeline problems — especially in engineering, testing, or complex data workflows. If you think in DAGs, maps, or monads but have to write MATLAB... this is for you.
