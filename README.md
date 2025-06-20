@@ -36,8 +36,11 @@ This is not just MATLAB. This is *clarity as a service*.
 - Each computation gets a pass and a fail function
 - Use `processTable` to apply the pipeline row-by-row
 
-####
-- Please refer to the examples under examples/
+## 📁 Examples
+See the `examples/` folder for:
+- Trivial computation pipelines
+- Error-handling and exception flow
+- Chained/nested pipeline logic
 
 ## 👁 Audience
 Anyone solving pipeline problems — especially in engineering, testing, or complex data workflows. If you think in DAGs, maps, or monads but have to write MATLAB... this is for you.
