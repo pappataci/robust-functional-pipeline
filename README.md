@@ -12,7 +12,7 @@ The result? Clean logic, composable building blocks, and no more scattered error
 
 - **Exception-safe**: Robust try/catch logic is wrapped into the pipeline — no need for spaghetti exception code
 - **Composable**: Define computations in a table or cell array — easy to extend, reuse, and test
-- **Functional flavor**: Each unit only needs to know its input and returns its output as a cell array
+- **Functional flavor**: Each unit only needs to know its input and returns its output
 - **Nested pipelines supported**: Computations themselves can invoke `processTable` — recursive logic is encouraged
 - **Debuggable by design**: Pipeline traces, failure logs, and modular units make it transparent
 
