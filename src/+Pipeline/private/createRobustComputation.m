@@ -31,15 +31,7 @@ function output = tryApply(passFunction, input, failFunction)
 % Outputs:
 %   output: The result of either the pass or fail function.
 
-try
-    
-    % Optimization: Check if input is already an exception
-    if isa(input, 'MException')
-        % If it's an MException, directly apply the fail function
-        output = failFunction(input, input);
-        return;
-    end
-    
+try 
     % Attempt to apply the pass function to the input.
     output = passFunction(input);
 catch ME

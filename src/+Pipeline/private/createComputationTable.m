@@ -37,22 +37,33 @@ for iComputation = 1:numComputations
     % Assign the 'Pass' function from computationList to the 'Pass' row of the table
     originalVariableName = originalVariableNames{iComputation};
     cleanedName = cleanedNames{iComputation};
-        
+
     passingFcn = getPassingFcn( computationList(iComputation).pass, ...
         originalVariableName, cleanedName);
-    
+
     computationTable{'Pass', cleanedName} = {passingFcn};
-    
+
     % If no 'Fail' function is provided, use a default exception handler for failures
-    if isempty(computationList(iComputation).fail)
-        failFunction = genericExceptionHandler(cleanedName);  % Create a default fail function
-    else
-        failFunction = computationList(iComputation).fail;  % Use the provided fail function
-    end
-    
+    failFunction = getFailingFunction( computationList(iComputation).fail, cleanedName);
+    % if isempty(computationList(iComputation).fail)
+    %     failFunction = genericExceptionHandler(cleanedName);  % Create a default fail function
+    % else
+    %     failFunction = computationList(iComputation).fail;  % Use the provided fail function
+    % end
+
     % Assign the 'Fail' function to the 'Fail' row of the table
     computationTable{'Fail', cleanedName} = {failFunction};
 end
+end
+
+function failFunction = getFailingFunction(scheduledFailingFunction, cleanedName)
+
+if isempty(scheduledFailingFunction)
+    failFunction = genericExceptionHandler(cleanedName);  % Create a default fail function
+else
+    failFunction = scheduledFailingFunction;  % Use the provided fail function
+end
+
 end
 
 function computation = getPassingFcn(passFunction, originalName, cleanedName)

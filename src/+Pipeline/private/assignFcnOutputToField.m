@@ -1,8 +1,16 @@
 function outerFcn = assignFcnOutputToField(fieldName, processingFcn)
-outerFcn = @(row) executer(fieldName, processingFcn, row);
-end
 
-function row = executer(fieldName, processingFcn, row)
-result = processingFcn(row);
-row.(fieldName) = {result};
+    function row = assigner(row)
+        try
+            result = processingFcn(row);
+            row.(fieldName) = {result};
+        catch ME
+            newME = MException('Pipeline:ProcessingFailed', ...
+                sprintf('Assignment to field "%s" failed. Cause: %s', fieldName, ME.message));
+            newME = addCause(newME, ME);
+            throw(newME);  % ✅ Must be `throw`, not `rethrow`
+        end
+    end
+
+outerFcn = @assigner;
 end
