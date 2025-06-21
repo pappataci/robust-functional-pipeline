@@ -29,7 +29,7 @@ Instead, we:
 - Elevate **computation-as-data**
 - Use structured folding to sequence transformations with built-in exception safety
 
-This is not just MATLAB. This is *clarity as a service*.
+This is not just MATLAB. It's *clarity as a service*.
 
 ## 🚀 How to use it
 You can define your pipeline in two ways:
@@ -54,10 +54,14 @@ disp(output.result{1});
 This creates a clean, fail-safe pipeline where each computation is wrapped with fallback logic. You can go from prototype to production-ready just by swapping in more robust pass/fail functions.
 
 ## 📁 Examples
+
 See the `examples/` folder for:
+
 - Trivial computation pipelines  
 - Error-handling and exception flow  
 - Chained/nested pipeline logic
+
+Browse the folder directly or start from `example_customFail.asv` to see failure handling in action.
 
 ⚠️ Note on Anonymous Functions and Error Handling
 In MATLAB, anonymous functions do not declare their output arity. If such a function fails before returning a value, and the pipeline expects an output, MATLAB throws a maxlhs error before your exception handler can intervene.
