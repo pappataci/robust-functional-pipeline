@@ -1,5 +1,5 @@
 # robust-functional-pipeline
-### Enjoy the dark side of pure functions. And never write a `try/catch` again.
+### Harness the dark side of pure functions. And never write a `try/catch` again.
 
 ## 🛠 What is this?
 A lightweight, composable framework to build **fault-tolerant data processing pipelines** in MATLAB — using functional programming patterns.
@@ -13,7 +13,7 @@ The result? Clean logic, composable building blocks, and no more scattered error
 - **Exception-safe**: Robust try/catch logic is wrapped into the pipeline — no need for spaghetti exception code  
 - **Composable**: Define computations in a table or cell array — easy to extend, reuse, and test  
 - **Functional flavor**: Each unit only needs to know its input and returns its output  
-- **Debuggable by design**: Pipeline traces, failure logs, and modular units make it transparent  
+- **Debuggable by design**: Built-in traces, failure logs, and modular units make it transparent
 
 ## 🧠 Advanced Use Case
 For advanced users, the input data table itself can contain *functions* — allowing you to process entire **tables of chained test functions** (e.g., EoL test pipelines).
@@ -64,13 +64,13 @@ See the `examples/` folder for:
 Browse the folder directly or start from `example_customFail.asv` to see failure handling in action.
 
 ⚠️ Note on Anonymous Functions and Error Handling
-In MATLAB, anonymous functions do not declare their output arity. If such a function fails before returning a value, and the pipeline expects an output, MATLAB throws a maxlhs error before your exception handler can intervene.
+In MATLAB, anonymous functions do not declare their output arity. If an anonymous function throws an error before producing output, and the pipeline expects an output, MATLAB throws a maxlhs error before your exception handler can intervene.
 
 If preserving full exception context is critical, we recommend writing your computation as a named function in a .m file or using the continuation-wrapping utility we provide.
 
 This ensures the pipeline can catch and propagate exceptions in a monadic style — preserving stack, cause, and downstream handling.
 
-✅ Yes, we know. And we’ve got you covered.
+✅ Yes, we’re aware — and we’ve engineered around it.
 
 ## 👁 Audience
 Anyone solving pipeline problems — especially in engineering, testing, or complex data workflows. If you think in DAGs, maps, or monads but have to write MATLAB... this is for you.
