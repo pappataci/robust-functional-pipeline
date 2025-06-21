@@ -57,7 +57,16 @@ This creates a clean, fail-safe pipeline where each computation is wrapped with 
 See the `examples/` folder for:
 - Trivial computation pipelines  
 - Error-handling and exception flow  
-- Chained/nested pipeline logic  
+- Chained/nested pipeline logic
+
+⚠️ Note on Anonymous Functions and Error Handling
+In MATLAB, anonymous functions do not declare their output arity. If such a function fails before returning a value, and the pipeline expects an output, MATLAB throws a maxlhs error before your exception handler can intervene.
+
+If preserving full exception context is critical, we recommend writing your computation as a named function in a .m file or using the continuation-wrapping utility we provide.
+
+This ensures the pipeline can catch and propagate exceptions in a monadic style — preserving stack, cause, and downstream handling.
+
+✅ Yes, we know. And we’ve got you covered.
 
 ## 👁 Audience
 Anyone solving pipeline problems — especially in engineering, testing, or complex data workflows. If you think in DAGs, maps, or monads but have to write MATLAB... this is for you.
