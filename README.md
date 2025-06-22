@@ -61,7 +61,7 @@ See the `examples/` folder for:
 - Error-handling and exception flow  
 - Chained/nested pipeline logic (already supported, example coming in version 0.2 for clarity)
 
-Browse the folder directly or start from `example_customFail.asv` to see failure handling in action.
+Browse the folder directly or start from `trivialExample.m` to see failure handling in action.
 
 ⚠️ Note on Anonymous Functions and Error Handling
 In MATLAB, anonymous functions do not declare their output arity. If an error is thrown *before* any output is returned, MATLAB throws a maxlhs error before your handler runs.
