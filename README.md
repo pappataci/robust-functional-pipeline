@@ -29,7 +29,7 @@ Instead, we:
 - Elevate **computation-as-data**
 - Use structured folding to sequence transformations with built-in exception safety
 
-This is not just MATLAB. It's *clarity as a service*.
+This is not just MATLAB. It's **clarity as a service**.
 
 ## 🚀 How to use it
 You can define your pipeline in two ways:
@@ -64,11 +64,9 @@ See the `examples/` folder for:
 Browse the folder directly or start from `example_customFail.asv` to see failure handling in action.
 
 ⚠️ Note on Anonymous Functions and Error Handling
-In MATLAB, anonymous functions do not declare their output arity. If an anonymous function throws an error before producing output, and the pipeline expects an output, MATLAB throws a maxlhs error before your exception handler can intervene.
+In MATLAB, anonymous functions do not declare their output arity. If an error is thrown *before* any output is returned, MATLAB throws a maxlhs error before your handler runs.
 
-If preserving full exception context is critical, we recommend writing your computation as a named function in a .m file or using the continuation-wrapping utility we provide.
-
-This ensures the pipeline can catch and propagate exceptions in a monadic style — preserving stack, cause, and downstream handling.
+If full exception context is important (e.g., stack trace and nested cause), use named functions (.m files) or wrap your logic using our provided continuation utility. 
 
 ✅ Yes, we’re aware — and we’ve engineered around it.
 
