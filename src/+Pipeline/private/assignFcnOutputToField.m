@@ -8,7 +8,7 @@ function outerFcn = assignFcnOutputToField(fieldName, processingFcn)
             newME = MException('Pipeline:ProcessingFailed', ...
                 sprintf('Assignment to field "%s" failed. Cause: %s', fieldName, ME.message));
             newME = addCause(newME, ME);
-            throw(newME);  % ✅ Must be `throw`, not `rethrow`
+            throw(newME);  %
         end
     end
 

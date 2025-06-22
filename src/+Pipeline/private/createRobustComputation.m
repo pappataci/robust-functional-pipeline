@@ -38,4 +38,5 @@ catch ME
     % If an error occurs, apply the fail function, passing the input and the exception.
     output = failFunction(input, ME);
 end
+
 end
