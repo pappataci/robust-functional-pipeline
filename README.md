@@ -59,7 +59,7 @@ See the `examples/` folder for:
 
 - Trivial computation pipelines  
 - Error-handling and exception flow  
-- Chained/nested pipeline logic
+- Chained/nested pipeline logic (already capable, but example coming in version 0.2)
 
 Browse the folder directly or start from `example_customFail.asv` to see failure handling in action.
 
