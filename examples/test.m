@@ -8,7 +8,7 @@
 
 doubleIt = @(x) 2*x ;
 
-pipeline2 = {'x2', @(~) error('hello')
+pipeline2 = {'x2', @failWithHello
              'x3', @(row) doubleIt(row.x2{1})};
 
 T = table((1:3)', 'VariableNames', {'x'});
